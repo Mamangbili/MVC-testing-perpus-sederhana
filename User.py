@@ -8,10 +8,7 @@ class User:
         self.password=password
         self.loginStatus = False
     
-    def lihat(self,koleksi):
-        koleksiBuku = koleksi.getKoleksi()
-        for i,buku in enumerate(buku,1):
-            print(i+'.', buku)
+    
             
                    
 class Admin(User, Authorize):

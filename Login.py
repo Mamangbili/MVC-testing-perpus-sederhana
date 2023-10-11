@@ -1,20 +1,26 @@
+from typing import List, Optional, Union
 from LoginException import *
-
+from User import *
 class Login:
     @staticmethod
-    def login(user,dataBaseUser):
-        userInDb = None
-        for user_db in dataBaseUser:
-            if user_db.Id == user.Id:
-                userInDb = user_db
+    def login(user:User,dataBaseUsers : List[Union[Admin,User]]):
+        userFound : Optional[Union[Admin,User]] = None
+        for userInDb in dataBaseUsers:
+            if userInDb.Id == user.Id:
+                userFound = userInDb
                 break
         else :
-            raise LoginWrongIdAndPasswordException("Id dan Password salah")
+            raise LoginWrongPasswordException("Id dan Password salah")
             
+        userValidated = Login.validatePassword(userInDb, user)
+        if userValidated : return userInDb
+            
+    @staticmethod
+    def validatePassword(userInDb:User, user):
         if userInDb.password == user.password :
-            user.loginStatus=True
+            return True
         else :
-            raise LoginWrongIdException("Password Salah")
+            raise LoginWrongPasswordException("Password Salah")
             
         
         

@@ -1,11 +1,17 @@
 from MenuException import *
 from User import User
-from Login import Login
+import time
+import os  # For clearing the screen
+
+
 
 class MenuUI:
     def __init__(self):
         self.input = None
         
+    def clearScreen(self):
+        time.sleep(2)
+        os.system('cls' if os.name == 'nt' else 'clear')
     
     def menuAwal(self): 
         print("""
@@ -15,7 +21,7 @@ class MenuUI:
         2. register
         """)
         
-    def inputMenu(self):
+    def inputMenuAwal(self):
         Input = input("Silahkan masukan menu diatas")
         try :
             Input = int(Input)
@@ -26,7 +32,7 @@ class MenuUI:
         except ValueError as err:
             raise MenuWrongException(err)
             
-    def tampilanListBuku(self,koleksiBuku):
+    def tampilkanListBuku(self,koleksiBuku):
         koleksiBuku = koleksiBuku.getKoleksi()
         for i,buku in enumerate(koleksiBuku,1):
             print(f"{i}. {buku}")
@@ -75,3 +81,12 @@ class MenuUI:
         userPassword = input ('Enter password : ')
         user = User(userId, userPassword)
         return user
+        
+    def registerScreen(self):
+        print("=====================")
+        Id = input("Masukan Id: ")
+        password1 = input("Masukan Password : ")
+        password2 = input("Masukan Passowrd kembali : ")
+        print("=====================")
+        
+        return {"Id": Id, "password1": password1, "password2":password2}

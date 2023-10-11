@@ -1,9 +1,8 @@
+from MenuBukuException import *
+
 class KoleksiBuku:
-    def __init__(self) -> None:
-        self.__koleksiBuku = []
-        
-    def tampilkanBuku(self, userVisitor):
-        userVisitor.lihat(self)
+    def __init__(self,koleksiDummy) -> None:
+        self.__koleksiBuku = [*koleksiDummy]
         
     def getKoleksi(self):
         return self.__koleksiBuku
