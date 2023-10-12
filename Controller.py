@@ -27,25 +27,25 @@ class Controller:
         databaseUser = dummyDbData        
         self.currentPage = Menu.MENU_AWAL
         self.exit = False
-        user = None
+        currentUser = None
         while (not self.exit):
             match self.currentPage:
                 case Menu.MENU_AWAL:
                     self.loopPage(self.menuAwal,view)
                 case Menu.LOGIN:
-                    user = self.loopPage(self.menuLogin,view,databaseUser)
+                    currentUser = self.loopPage(self.menuLogin,view,databaseUser)
                 case Menu.HALAMAN_USER:
-                    self.loopPage(self.menuUser,view,user)
+                    self.loopPage(self.menuUser,view,currentUser)
                 case Menu.HALAMAN_ADMIN:
-                    self.loopPage(self.menuAdmin,view,user)
+                    self.loopPage(self.menuAdmin,view,currentUser)
                 case Menu.REGISTER:
-                    user = self.loopPage(self.menuRegister,view,databaseUser)
+                    currentUser = self.loopPage(self.menuRegister,view,databaseUser)
                 case Menu.LIHAT_BUKU:
-                    self.loopPage(self.menuTampilkanBuku,view,user,koleksiBuku)
+                    self.loopPage(self.menuTampilkanBuku,view,currentUser,koleksiBuku)
                 case Menu.HAPUS_BUKU:
-                    self.loopPage(self.menuHapusBuku,view,koleksiBuku,user)
+                    self.loopPage(self.menuHapusBuku,view,koleksiBuku,currentUser)
                 case Menu.TAMBAH_BUKU:
-                    self.loopPage(self.menuTambahBuku,view,koleksiBuku,user)
+                    self.loopPage(self.menuTambahBuku,view,koleksiBuku,currentUser)
                 case Menu.EXIT:
                     exit()
                     
