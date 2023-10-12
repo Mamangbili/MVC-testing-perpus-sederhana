@@ -1,21 +1,30 @@
 from Controller import Controller
 from UIView import MenuUI
 from KoleksiBuku import KoleksiBuku
+from Buku import Buku
+from User import User, Admin
 
-book_titles = [
-    "To Kill a Mockingbird",
-    "1984",
-    "The Great Gatsby",
-    "Pride and Prejudice",
-    "The Catcher in the Rye",
-    "Harry Potter and the Sorcerer's Stone",
-    "The Lord of the Rings",
-    "The Hobbit",
-    "Brave New World",
-    "The Hunger Games"
+bookTitlesData = [
+    Buku("To Kill a Mockingbird"),
+    Buku("1984"),
+    Buku("The Great Gatsby"),
+    Buku("Pride and Prejudice"),
+    Buku("The Catcher in the Rye"),
+    Buku("Harry Potter and the Sorcerer's Stone"),
+    Buku("The Lord of the Rings"),
+    Buku("The Hobbit"),
+    Buku("Brave New World"),
+    Buku("The Hunger Games")
 ]
 
-koleksiBuku = KoleksiBuku(book_titles)
+dummyUser = [
+            User("asep", "asep123"),
+            User("rudi","rudi123"),
+            Admin("mamat","mamat123"),
+            User("cepi","cepi123")
+        ]
 
-view = MenuUI()
-controller = Controller(view,koleksiBuku)
+if __name__ == '__main__':
+    koleksiBuku = KoleksiBuku(bookTitlesData)
+    view = MenuUI()
+    controller = Controller(view,koleksiBuku, dummyUser)

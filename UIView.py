@@ -1,5 +1,4 @@
 from MenuException import *
-from User import User
 import time
 import os  # For clearing the screen
 
@@ -10,22 +9,23 @@ class MenuUI:
         self.input = None
         
     def clearScreen(self):
-        time.sleep(2)
+        time.sleep(1)
         os.system('cls' if os.name == 'nt' else 'clear')
     
     def menuAwal(self): 
         print("""
-        Selamat Datang di Perpus 1
-        ==========================
+        Selamat Datang di Perpus Nusantara
+        ==================================
         1. login
         2. register
+        3. exit
         """)
         
     def inputMenuAwal(self):
-        Input = input("Silahkan masukan menu diatas")
+        Input = input("Silahkan masukan menu diatas : ")
         try :
-            Input = int(Input)
-            if 0 < Input < 3:
+            
+            if 0 < int(Input) < 4:
                 return Input
             else:
                 raise ValueError("Tidak sesuai dengan Menu")
@@ -33,14 +33,16 @@ class MenuUI:
             raise MenuWrongException(err)
             
     def tampilkanListBuku(self,koleksiBuku):
+        print("=================================")
         koleksiBuku = koleksiBuku.getKoleksi()
         for i,buku in enumerate(koleksiBuku,1):
-            print(f"{i}. {buku}")
+            print(f"{i}. {buku.judul}")
     
     def tampilanUser(self):
         print('''
         1. lihat buku
         2. log out
+        3. exit
         =================
         ''')
     
@@ -79,7 +81,7 @@ class MenuUI:
     def loginScreen(self):
         userId = input('Enter Id : ')
         userPassword = input ('Enter password : ')
-        user = User(userId, userPassword)
+        user = [userId,userPassword]
         return user
         
     def registerScreen(self):
