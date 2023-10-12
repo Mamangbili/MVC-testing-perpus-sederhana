@@ -18,10 +18,10 @@ bookTitlesData = [
 ]
 
 dummyUser = [
-            User("asep", "asep123"),
-            User("rudi","rudi123"),
-            Admin("mamat","mamat123"),
-            User("cepi","cepi123")
+            User("asep", "Asep1234"),
+            User("rudi","Rudi1234"),
+            Admin("mamat","Mamat1234"),
+            User("cepi","Cepi1234")
         ]
 
 if __name__ == '__main__':

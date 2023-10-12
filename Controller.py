@@ -1,8 +1,6 @@
 from enum import Enum
-from LoginException import LoginWrongIddException, LoginWrongPasswordException
 from MenuException import MenuWrongException
 from Register import Register
-from RegisterException import RegisterIdAlreadyExistException, RegisterPasswordNotMatchException
 from UIView import MenuUI
 from Login import Login
 from User import *
@@ -76,7 +74,6 @@ class Controller:
                 view.clearScreen()
                 view.menuAwal()
                 pilihan = view.inputMenuAwal()
-                loop = False
                 match pilihan:
                     case '1':
                         self.currentPage = Menu.LOGIN
@@ -114,7 +111,7 @@ class Controller:
                 postLoginData = User(IdLogin,PassLogin)
                 loginUser = Login.login(postLoginData,dummyDbUser)
                 
-                if isinstance(loginUser, Admin):
+                if isinstance(loginUser, Authorize):
                     self.currentPage = Menu.HALAMAN_ADMIN
                 else :
                     self.currentPage = Menu.HALAMAN_USER
@@ -133,13 +130,13 @@ class Controller:
                 return newUser
            
         
-    def menuTampilkanBuku(self,view,user:User|None,koleksiBuku:KoleksiBuku):
+    def menuTampilkanBuku(self,view,user:User,koleksiBuku:KoleksiBuku):
         view.clearScreen()    
         view.tampilkanListBuku(koleksiBuku)
         print()
         print("Tekan Enter untuk kembali ke menu")
         input()
-        if(isinstance(user,Admin)):
+        if(isinstance(user,Authorize)):
             self.currentPage = Menu.HALAMAN_ADMIN
         else:
             self.currentPage = Menu.HALAMAN_USER
@@ -151,7 +148,7 @@ class Controller:
         view.tampilkanListBuku(koleksi)
         print("==========================================")
         judul = input("Masukan Judul Buku Baru : ")
-        koleksi.tambahBuku(admin,Buku(judul))
+        koleksi.tambahBuku(admin,Buku(judul.rstrip()))
         self.currentPage = Menu.HALAMAN_ADMIN
         view.clearScreen()
         

@@ -10,7 +10,7 @@ class Login:
                 userFound = userInDb
                 break
         else :
-            raise LoginWrongIddException("Id Tidak Terdaftar")
+            raise LoginIdNotExistException("Id Tidak Terdaftar")
             
         userValidated = Login.validatePassword(userFound, user)
         if userValidated : return userInDb
