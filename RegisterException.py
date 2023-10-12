@@ -1,17 +1,12 @@
+from MyException import MyException
 
-class RegisterIdAlreadyExistException(Exception):
-    def __init__(self,message): 
-        super().__init__(message)
-    
-    def __repr__():
-        return super().__repr__()
+class RegisterIdAlreadyExistException(MyException):
+      def __init__(self, message,*args: object) -> None:
+        super().__init__(message,*args)
 
-class RegisterPasswordNotMatchException(Exception):
-    def __init__(self,message): 
-        super().__init__(message)
-    
-    def __repr__():
-        return super().__repr__()
+class RegisterPasswordNotMatchException(MyException):
+      def __init__(self, message,*args: object) -> None:
+        super().__init__(message,*args)
 
 
 

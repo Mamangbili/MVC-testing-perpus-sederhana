@@ -1,13 +1,11 @@
-class BukuTambahException(Exception):
-    def __init__(self, *args: object) -> None:
-        super().__init__(*args)
+from MyException import MyException
 
-    def __repr__(self) -> str:
-        return super().__repr__()
+class BukuTambahException(MyException):
+      def __init__(self, message,*args: object) -> None:
+        super().__init__(message, *args)
         
-class BukuHapusException(Exception):
-    def __init__(self, *args: object) -> None:
+        
+class BukuHapusException(MyException):
+      def __init__(self, *args: object) -> None:
         super().__init__(*args)
-    
-    def __repr__(self) -> str:
-        return super().__repr__()
+      

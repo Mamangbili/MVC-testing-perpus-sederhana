@@ -1,9 +1,10 @@
-class MenuWrongException(Exception):
-    def __init__(self, *args: object) -> None:
-        super().__init__(*args)
-        
-    def __repr__(self) -> str:
-        return super().__repr__()
+from MyException import MyException
+
+class MenuWrongException(MyException):
+    def __init__(self, message) -> None:
+        super().__init__(message)
+        self.message = message
+    
 
 
 

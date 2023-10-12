@@ -1,17 +1,12 @@
-class LoginWrongPasswordException(Exception):
-    def __init__(self,message):
-        super().__init__(message)
-        self.message = message
-        
-    def __repr__(self) -> str:
-        return super().__repr__()
+from MyException import MyException
+
+class LoginWrongPasswordException(MyException):
+      def __init__(self, message,*args: object) -> None:
+        super().__init__(message,*args)
 
     
-class LoginWrongIdException(Exception):
-    def __init__(self,message):
-        super().__init__(message)
-        
-    def __repr__(self) -> str:  
-        return super().__repr__()
+class LoginWrongIddException(MyException):
+      def __init__(self, message,*args: object) -> None:
+        super().__init__(message, *args)
         
 

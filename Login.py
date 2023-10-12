@@ -4,15 +4,15 @@ from User import *
 class Login:
     @staticmethod
     def login(user:User,dataBaseUsers : List[Union[Admin,User]]):
-        userFound : Optional[Union[Admin,User]] = None
+        userFound : Optional[User] = None
         for userInDb in dataBaseUsers:
             if userInDb.Id == user.Id:
                 userFound = userInDb
                 break
         else :
-            raise LoginWrongPasswordException("Id dan Password salah")
+            raise LoginWrongIddException("Id Tidak Terdaftar")
             
-        userValidated = Login.validatePassword(userInDb, user)
+        userValidated = Login.validatePassword(userFound, user)
         if userValidated : return userInDb
             
     @staticmethod

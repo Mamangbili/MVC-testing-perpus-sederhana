@@ -28,21 +28,22 @@ class MenuUI:
             if 0 < int(Input) < 4:
                 return Input
             else:
-                raise ValueError("Tidak sesuai dengan Menu")
+                raise ValueError()
         except ValueError as err:
-            raise MenuWrongException(err)
+            raise MenuWrongException("Tidak sesuai dengan Menu")
             
     def tampilkanListBuku(self,koleksiBuku):
         print("=================================")
         koleksiBuku = koleksiBuku.getKoleksi()
         for i,buku in enumerate(koleksiBuku,1):
             print(f"{i}. {buku.judul}")
+        
     
-    def tampilanUser(self):
+    def tampilanUser(self, user):
+        print(f"Nama User Anda    : {user.Id}")
         print('''
         1. lihat buku
         2. log out
-        3. exit
         =================
         ''')
     
@@ -55,10 +56,11 @@ class MenuUI:
             else:
                 raise ValueError("Tidak sesuai dengan Menu")
         except ValueError as err:
-            raise MenuWrongException(err)
+            raise MenuWrongException("Tidak sesuai dengan Menu")
     
     
-    def tampilanAdmin(self):
+    def tampilanAdmin(self,admin):
+        print(f"Nama User Anda    : {admin.Id}")
         print('''
         1. lihat buku
         2. tambah buku
