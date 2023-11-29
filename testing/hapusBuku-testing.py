@@ -1,4 +1,4 @@
-import __init__
+from constant import *
 from KoleksiBuku import KoleksiBuku
 from Buku import Buku
 import unittest
@@ -33,7 +33,6 @@ class HapusBuku(unittest.TestCase):
         
     def test_hapusYangTidakAdaDiList(self):
         koleksi = KoleksiBuku(koleksiBaru)
-        koleksiBaruTest = KoleksiBuku(koleksiTanpa1984)
         admin = Admin("Admin", 'Admin123')
         
         with self.assertRaises(BukuHapusException):
@@ -41,7 +40,6 @@ class HapusBuku(unittest.TestCase):
             
     def test_hapusSelainAdmin(self):
         koleksi = KoleksiBuku(koleksiBaru)
-        koleksiBaruTest = KoleksiBuku(koleksiTanpa1984)
         user = User("Admin", 'Admin123')
         
         

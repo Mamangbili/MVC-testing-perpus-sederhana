@@ -1,5 +1,5 @@
 
-import __init__
+import constant
 
 import unittest
 from User import *

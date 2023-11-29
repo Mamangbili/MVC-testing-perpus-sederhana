@@ -1,10 +1,7 @@
-from __init__ import *
- 
+from constant import * 
 import unittest
 from Login import Login
 from LoginException import *
-
-
 
 class LoginTest(unittest.TestCase):
     def test_loginBiasa(self):

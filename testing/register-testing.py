@@ -1,8 +1,8 @@
-from __init__ import *
+import unittest
+from constant import dummyUser, User
 
 from Register import Register
 from RegisterException import *
-import unittest
 
 class RegisterTest(unittest.TestCase):
     

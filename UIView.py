@@ -1,3 +1,4 @@
+from KoleksiBuku import KoleksiBuku
 from MenuException import *
 import time
 import os  # For clearing the screen
@@ -44,6 +45,7 @@ class MenuUI:
         print('''
         1. lihat buku
         2. log out
+        3. cari buku
         =================
         ''')
     
@@ -51,12 +53,13 @@ class MenuUI:
         userInput = input("masukan pilihan menu : ")
         try :
             Input = int(userInput)
-            if 0 < Input < 3:
+            if 0 < Input < 4:
                 return userInput
             else:
                 raise ValueError("Tidak sesuai dengan Menu")
         except ValueError as err:
             raise MenuWrongException("Tidak sesuai dengan Menu")
+     
     
     
     def tampilanAdmin(self,admin):
@@ -66,14 +69,23 @@ class MenuUI:
         2. tambah buku
         3. hapus buku
         4. log out
+        5. cari buku
         ===============
         ''')
-    
+     
+    def inputCari(self):
+        return input("Cari Buku : ")
+     
+    def menuCari(self,hasilCari):
+        print("=================================")
+        for i,buku in enumerate( hasilCari , 1):
+               print(f'{i}. {buku.judul}') 
+        
     def inputAdmin(self):
         adminInput = input("masukan pilihan menu : ")
         try :
             Input = int(adminInput)
-            if 0 < Input < 5:
+            if 0 < Input < 6:
                 return adminInput
             else:
                 raise ValueError("Tidak sesuai dengan Menu")

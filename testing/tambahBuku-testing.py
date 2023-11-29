@@ -1,9 +1,7 @@
-import __init__
-
+import unittest
+import constant
 from Buku  import Buku
 from KoleksiBuku import KoleksiBuku
-import unittest
-import copy
 from User import Admin
 from MenuBukuException import BukuTambahException, BukuHapusException
 
@@ -20,7 +18,6 @@ koleksiLama = [
     Buku("Brave New World"),
     Buku("The Hunger Games"),
 ]
-
 
 koleksiBaru = [
     *koleksiLama,
