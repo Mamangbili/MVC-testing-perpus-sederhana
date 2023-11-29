@@ -54,7 +54,7 @@ class Controller:
                 case Menu.EXIT:
                     exit()
                 case Menu.CARI:
-                    pass
+                    self.loopPage(self.menuCari, view, currentUser)
 
     def menuAdmin(self, view: MenuUI, admin):
         view.clearScreen()
@@ -73,6 +73,8 @@ class Controller:
                 self.currentPage = Menu.HAPUS_BUKU
             case "4":
                 self.currentPage = Menu.MENU_AWAL
+            case "5":
+                self.currentPage = Menu.CARI
             case _:
                 raise MenuWrongException("Tidak ada di pilihan")
 
@@ -82,6 +84,7 @@ class Controller:
         cari = Search(self.koleksiBuku)
         result = cari.search(keyword)
         view.menuCari(result)
+        
         print()
         print("Tekan Enter untuk kembali ke menu")
         input()
@@ -101,7 +104,6 @@ class Controller:
                 self.currentPage = Menu.LOGIN
             case "2":
                 self.currentPage = Menu.REGISTER
-
             case "3":
                 self.currentPage = Menu.EXIT
             case _:
@@ -113,6 +115,8 @@ class Controller:
                 self.currentPage = Menu.LIHAT_BUKU
             case "2":
                 self.currentPage = Menu.MENU_AWAL
+            case "3":
+                self.currentPage = Menu.CARI
             case _:
                 raise MenuWrongException("Tidak ada di pilihan")
 

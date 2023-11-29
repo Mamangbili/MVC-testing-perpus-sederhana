@@ -4,10 +4,11 @@ class Search:
         self.koleksiBuku = koleksiBuku
     
     def search(self,keyword):
-        choosenRatio = 70
+        choosenRatio = 20 
         result = []
         for book in self.koleksiBuku.getKoleksi():
             ratio = fuzz.ratio(keyword,book.judul) 
+            print(ratio)
             if ratio > choosenRatio:
                 result.append(book)
         return result
